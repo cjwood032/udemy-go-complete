@@ -23,7 +23,8 @@ func TestNewDeckCards(t *testing.T) {
 func TestShuffledDeckCards(t *testing.T) {
 	d := newDeck()
 	s := newDeck()
-	//s.shuffle()
+	sP := &s
+	sP.shuffle()
 	if len(d) != len(s) {
 		t.Errorf("Expected decks to be equal length, but got %v and %v", len(s), len(d))
 	}

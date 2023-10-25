@@ -23,12 +23,12 @@ func newDeck() deck {
 	return cards
 }
 
-func (d deck) shuffle() {
+func (d *deck) shuffle() {
 	source := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(source)
-	for i := range d {
-		p := r.Intn(len(d) - 1)
-		d[i], d[p] = d[p], d[i]
+	for i := range *d {
+		p := r.Intn(len(*d) - 1)
+		(*d)[i], (*d)[p] = (*d)[p], (*d)[i]
 	}
 }
 
